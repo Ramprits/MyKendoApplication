@@ -1,0 +1,31 @@
+<div class="container" style="margin-top:20px;">
+  <kendo-grid [kendoGridBinding]="comments" [pageSize]="50" [pageable]="true" [sortable]="true" [filterable]="true" [groupable]="true"
+    [height]="800">
+    <ng-template kendoGridToolbarTemplate>
+      <button kendoGridPDFCommand ><span class='k-icon k-i-file-pdf'></span>Export to PDF</button>
+    </ng-template>
+    <kendo-grid-column field="id" title="ID" width="10">
+    </kendo-grid-column>
+    <kendo-grid-column field="name" title="Name" width="100">
+    </kendo-grid-column>
+    <kendo-grid-column field="email" title="Email" width="100">
+    </kendo-grid-column>
+    <kendo-grid-column field="body" title="Body" width="100">
+    </kendo-grid-column>
+    <kendo-grid-pdf fileName="Products.pdf" [allPages]="true" paperSize="A4" [repeatHeaders]="true" [landscape]="true">
+      <kendo-grid-pdf-margin top="2cm" left="1cm" right="1cm" bottom="2cm"></kendo-grid-pdf-margin>
+      <ng-template kendoGridPDFTemplate let-pageNum="pageNum" let-totalPages="totalPages">
+        <div class="page-template">
+          <div class="header">
+            <div style="float: right">Page {{ pageNum }} of {{ totalPages }}</div>
+            Multi-page grid with automatic page breaking
+          </div>
+          <div class="footer">
+            Page {{ pageNum }} of {{ totalPages }}
+          </div>
+        </div>
+      </ng-template>
+    </kendo-grid-pdf>
+  </kendo-grid>
+  <kendo-button [primary]="true">Send</kendo-button>
+</div>

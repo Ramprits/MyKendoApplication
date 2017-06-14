@@ -1,11 +1,13 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { CommentComponent } from 'app/comment/comment.component';
 
 const routes: Routes = [
   {
-    path: '',
-    children: []
-  }
+    path: 'comments',
+    component: CommentComponent
+  },
+  { path: '', pathMatch: 'full', redirectTo: 'comments' }
 ];
 
 @NgModule({
