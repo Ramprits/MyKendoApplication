@@ -51,3 +51,10 @@ Debugging with chrome
     ]
 }
 require to add in your launch.json
+And Add this in your setting.js
+
+
+{
+    "typescript.check.workspaceVersion": false,
+    "vsicons.presets.angular": true
+}
